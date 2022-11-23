@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style2.css">
+  <title>My Website</title>
+
+  <link rel="stylesheet" type="text/css"
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  </link>
+  <link rel="stylesheet" type="text/css" href="./chat.css">
+  </link>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"></script>
+  <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.25.0.js"></script>
+  <style type="text/css">
+    li {
+      list-style: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <section id="header">
+    <div class="header container">
+      <div class="nav-bar">
+        <div class="brand">
+          <a href="#hero">
+            <h1><span>A</span>WS <span>P</span>olly</h1>
+          </a>
+        </div>
+        <div class="nav-list">
+          <div class="hamburger">
+            <div class="bar"></div>
+          </div>
+          <ul>
+            <li><a href="#hero" data-after="Home">Home</a></li>
+            <li><a href="#projects" data-after="Service">Members</a></li>
+            <li><a href="#services" data-after="Projects">Projects</a></li>
+            <li><a href="#pub-nub" data-after="PubNub">PubNub</a></li>
+            <li><a href="#about" data-after="About">Code</a></li>
+            <li><a href="#contact" data-after="Contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Header -->
+
+
+  <!-- Hero Section  -->
+  <section id="hero">
+    <div class="hero container">
+      <div>
+        <h1><span></span></h1>
+        <h1>Nhóm <span></span></h1>
+        <h1>28 <span></span></h1>
+        <a href="http://127.0.0.1:5501/AWSPolly_Nhom28-5e975dfd1756c4c0ffc689113a3809808ccd80eb/AWSPolly/login.html" type="button" class="cta" id="logout-button">Đăng xuất</a>
+      </div>
+    </div>
+  </section>
+  <!-- End Hero Section  -->
+
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="projects container">
+      <div class="projects-header">
+        <h1 class="section-title">Mem <span>bers</span></h1>
+      </div>
+      <div class="all-projects">
+        <div class="project-item">
+          <div class="project-info">
+            <h1>Vũ Trần Thành Công</h1>
+            <h2>20110448</h2>
+            <p></p>
+          </div>
+          <div class="project-img">
+            <img src="img/avt3.PNG" alt="img">
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-info">
+            <h1>Huỳnh Bảo Toàn</h1>
+            <h2>20161385</h2>
+            <p></p>
+          </div>
+          <div class="project-img">
+            <img src="img/avt2.jpg" alt="img">
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-info">
+            <h1>Đào Xuân Trí</h1>
+            <h2>20110581</h2>
+            <p></p>
+          </div>
+          <div class="project-img">
+            <img src="img/avt1.jpg" alt="img">
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+  </section>
+  <!-- End Projects Section -->
+
+
+  <!-- Service Section -->
+  <section id="services">
+    <div class="services container">
+      <div class="service-top">
+        <h1 class="section-title">Pro<span>j</span>ects</h1>
+        <p>Sau đây là projects mà nhóm đã thực hiện</p>
+      </div>
+
+      <div class="top">
+        <span id="title">
+          <h1>Convert Text To Speech Via AWS Polly</h1>
+        </span>
+      </div>
+      <div id="textToSynth">
+        <h3 style="margin-top: 3px;">Choose Language</h3>
+        <select autofocus id="author" onchange="getInfo()">
+          <option value="Matthew">English(US)</option>
+          <option value="Emma">English(UK)</option>
+          <option value="Russell">English (Australian)</option>
+          <option value="Ruben">Dutch (Netherland)</option>
+          <option value="Aria">English (New Zealand)</option>
+          <option value="Ayanda">English (South African)</option>
+          <option value="Naja">Danish (Denmark)</option>
+          <option value="Zhiyu">Chinese</option>
+          <option value="Zeina">Arabic (Arab)</option>
+          <option value="Aditi">Hindi(India)</option>
+          <option value="Mathieu">French</option>
+          <option value="Marlene">German</option>
+          <option value="Karl">Icelandic</option>
+          <option value="Bianca">Italian</option>
+          <option value="Takumi">Japanese</option>
+          <option value="Seoyeon">Korean</option>
+          <option value="Liv">Norwegian(Norway)</option>
+          <option value="Male">Polish(Poland)</option>
+          <option value="Camila">Portuguese (Brazilian)</option>
+          <option value="Cristiano">Portuguese (European)</option>
+          <option value="Carmen">Romanian</option>
+          <option value="Maxim">Russian</option>
+          <option value="Lucia">Spanish (European)</option>
+          <option value="Miguel">Spanish (US)</option>
+          <option value="Astrid">Swedish</option>
+          <option value="Filiz">Turkish</option>
+          <option value="Gwyneth">Welsh(Wales)</option>
+        </select> </br>
+        <input type="file" id="myFile" name="filename" accept=".txt">
+        <p id="state"></p>
+        <textarea type="text" id="textEntry" placeholder="Enter your text"></textarea> </br>
+        <div class="button">
+          <button class="btn1" onClick="speakText()">Synthesize</button>
+          <button class="btn2" onClick="clearText()">Clear Text</button>
+        </div>
+        <p id="result">None Text</p>
+      </div>
+      <audio id="audioPlayback" controls>
+        <source id="audioSource" type="audio/mp3" src="">
+      </audio>
+      <!--Polly.HTML.Browser.config -->
+      <script src="https://sdk.amazonaws.com/js/aws-sdk-2.410.0.min.js"></script>
+      <script type="text/javascript" src="main.js"></script>
+    </div>
+  </section>
+  <!-- End Service Section -->
+
+  <section id="pub-nub">
+    <h1 class="section-title">Pu<span>b</span>Nub</h1>
+    <p class="pubnub-cotent">Chat app Demo</p>
+    <div class="container clearfix">
+      <div class="people-list" id="people-list">
+        <ul class="list">
+        </ul>
+      </div>
+      <div class="chat">
+        <div class="chat-header clearfix">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar"
+            class="img-header" />
+          <div class="chat-about">
+            <div class="chat-with">PubNub with AWS Polly Demo Chat</div>
+          </div>
+          <div id="speechButton" class="speech-button"><img src="./speech-icon.png"></div>
+        </div>
+        <div class="chat-history">
+          <ul id="chat-history-ul"></ul>
+        </div>
+        <form id="sendMessage" class="chat-message clearfix">
+          <input type="text" name="message-to-send" id="message-to-send" placeholder="Type your message" rows="1"
+            autocomplete="off"></input>
+          <input type="submit" value="Send"></input>
+        </form>
+        <!-- end chat-message -->
+      </div>
+      <!-- end chat -->
+    </div>
+    <!-- end container -->
+
+    <audio id="player">
+    </audio>
+
+    <script id="message-template" type="text/x-handlebars-template">
+      <li class="clearfix" data-order={{tt}}>
+          <div class="message-data align-right">
+              <span class="message-data-time">{{time}}</span> &nbsp; &nbsp;
+              <span class="message-data-name">{{user.first}}</span> <i class="fa fa-circle me"></i>
+          </div>
+          <div class="message other-message float-right">
+              {{{messageOutput}}}
+          </div>
+      </li>
+  </script>
+    <script id="message-response-template" type="text/x-handlebars-template">
+      <li data-order={{tt}}>
+          <div class="message-data">
+              <span class="message-data-name"><i class="fa fa-circle online"></i> {{user.first}}</span>
+              <span class="message-data-time">{{time}}</span>
+          </div>
+          <div class="message my-message">
+              {{{messageOutput}}}
+          </div>
+      </li>
+  </script>
+    <script id="person-template" type="text/x-handlebars-template">
+      {{#if first}}
+      <li class="clearfix" id="{{uuid}}">
+          <img src="{{avatar}}" alt="avatar" />
+          <div class="about">
+              <div style="font-size: 20px;" class="name">{{first}}</div>
+              <div class="status">
+                  <i class="fa fa-circle online"></i> online
+              </div>
+          </div>
+      </li>
+      {{/if}}
+  </script>
+
+  </section>
+
+
+
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="about container">
+      <div class="col-left">
+        <div class="about-img">
+          <img src="img/anh5.png" alt="img">
+        </div>
+      </div>
+      <div class="col-right">
+        <h1 class="section-title">Source <span>Code</span></h1>
+        <h2>Nhấn vào đây</h2>
+        <a href="https://github.com/ToanHuynh1/AWSPolly_Nhom28" class="cta">Download</a>
+      </div>
+    </div>
+  </section>
+  <!-- End About Section -->
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="contact container">
+      <div>
+        <h1 class="section-title">Contact <span>info</span></h1>
+      </div>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/phone.png" /></div>
+          <div class="contact-info">
+            <h1>Phone</h1>
+            <h2>0765969802</h2>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/new-post.png" /></div>
+          <div class="contact-info">
+            <h1>Email</h1>
+            <h2>baotoandd2016@gmail.com</h2>
+            <h2>xuantri123@gmail.com</h2>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/map-marker.png" /></div>
+          <div class="contact-info">
+            <h1>Address</h1>
+            <h2>Số 1, VVN</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Contact Section -->
+  <!-- Footer -->
+  <section id="footer">
+    <div class="footer container">
+      <div class="brand">
+        <h1><span>A</span>WS <span>P</span>olly</h1>
+      </div>
+      <div class="social-icon">
+        <div class="social-item">
+          <a href="https://www.facebook.com/profile.php?id=100009149872534"><img
+              src="https://img.icons8.com/bubbles/100/000000/facebook-new.png" /></a>
+        </div>
+        <div class="social-item">
+          <a href="https://www.instagram.com/huynhbao.toan/"><img
+              src="https://img.icons8.com/bubbles/100/000000/instagram-new.png" /></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Footer -->
+  <script src="./app.js"></script>
+  <script type="module" src="logout.js"></script>
+  <script src="./chat.js"></script>
+</body>
+
+</html>
